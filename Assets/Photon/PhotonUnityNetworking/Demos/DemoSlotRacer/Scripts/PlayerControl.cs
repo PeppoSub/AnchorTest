@@ -9,22 +9,29 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 using System.Collections;
 
 using Photon.Pun.Demo.SlotRacer.Utils;
 using Photon.Pun.UtilityScripts;
 
+//using Photon.Pun;
 namespace Photon.Pun.Demo.SlotRacer
 {
-    /// <summary>
-    /// Player control. 
-    /// Interface the User Inputs and PUN
-    /// Handle the Car instance 
-    /// </summary>
+/// <summary>
+/// Player control. 
+/// Interface the User Inputs and PUN
+/// Handle the Car instance 
+/// </summary>
     [RequireComponent(typeof(SplineWalker))]
     public class PlayerControl : MonoBehaviourPun, IPunObservable
     {
+        // add Joystick ... or button
+        //public global::VariableJoystick variableJoystick;
+        //public Button goButton;
+
         /// <summary>
         /// The car prefabs to pick depending on the grid position.
         /// </summary>
@@ -163,6 +170,10 @@ namespace Photon.Pun.Demo.SlotRacer
 
             // now we can set it up.
             this.SetupCarOnTrack(this.photonView.Owner.GetPlayerNumber());
+
+            // Add joystick
+            //if (variableJoystick == null) { variableJoystick = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<VariableJoystick>(); }
+            //goButton = GameObject.FindGameObjectWithTag("Go").GetComponent<Button>();
         }
 
         /// <summary>
@@ -184,6 +195,11 @@ namespace Photon.Pun.Demo.SlotRacer
             if (this.photonView.IsMine)
             {
                 this.m_input = Input.GetAxis("Vertical");
+
+                // JoysStick input
+                //this.m_input = variableJoystick.Vertical;
+                //if(goButton.OnPointerDown())
+
                 if (this.m_input == 0f)
                 {
                     this.CurrentSpeed -= Time.deltaTime * this.Drag;
@@ -226,6 +242,7 @@ namespace Photon.Pun.Demo.SlotRacer
 
             }
         }
+
 
         #endregion Monobehaviour
     }
