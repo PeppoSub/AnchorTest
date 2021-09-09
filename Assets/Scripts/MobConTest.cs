@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
+using Photon.Pun;
 
 public class MobConTest : MonoBehaviour
 {
     private CarController m_Car; 
     public VariableJoystick variableJoystick;
     public GameObject theCar;
+
+    PhotonView view;
 
     private void Awake()
     {
@@ -20,13 +23,20 @@ public class MobConTest : MonoBehaviour
         //Debug.Log(GameObject.FindGameObjectsWithTag("GameController").ToString());
 
         if (variableJoystick == null) { variableJoystick = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<VariableJoystick>(); }
+
+        // photon component
+        view = GetComponent<PhotonView>();
     }
+
 
     //private void FixedUpdate()
     private void Update()
-    { 
-        float h = variableJoystick.Horizontal;
-        float v = variableJoystick.Vertical;
-        m_Car.Move(h, v, v, 0f);
+    {
+        if (view.IsMine)
+        {
+            float h = variableJoystick.Horizontal;
+            float v = variableJoystick.Vertical;
+            m_Car.Move(h, v, v, 0f);
+        }
     }
 }
