@@ -502,7 +502,6 @@ GameObject:
   - component: {fileID: 787202165}
   - component: {fileID: 787202169}
   - component: {fileID: 787202168}
-  - component: {fileID: 787202167}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -538,26 +537,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &787202167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787202164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1579bed21329e3e4e92b5a112252127c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theRaycastManager: {fileID: 787202168}
-  thePlaneManager: {fileID: 787202169}
-  theCamera: {fileID: 2092668694}
-  thePlacementIndicatorPrefab: {fileID: 2501516738616875329, guid: d93653dc4b04def48ae99aa94bbaff63,
-    type: 3}
-  theObjectsToPlace:
-  - {fileID: 2501516738616875329, guid: d93653dc4b04def48ae99aa94bbaff63, type: 3}
-  theCanvas: {fileID: 0}
 --- !u!114 &787202168
 MonoBehaviour:
   m_ObjectHideFlags: 0
