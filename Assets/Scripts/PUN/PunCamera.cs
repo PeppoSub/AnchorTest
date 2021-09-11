@@ -25,9 +25,4 @@ public class PunCamera : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-
-    }
-
 }

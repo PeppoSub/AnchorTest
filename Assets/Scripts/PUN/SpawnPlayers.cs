@@ -10,18 +10,20 @@ public class SpawnPlayers : MonoBehaviour
     public Transform spawn1;
     public Transform spawn2;
 
-    private bool spawned1 = false;
+    //private bool spawned1 = false;
 
     void Start()
     {
         Transform spawnPoint;
         GameObject playerPrefab;
+        int player = PlayerPrefs.GetInt("player");
 
-        if (!spawned1) 
+        Debug.Log("Spawning Player " + player.ToString());
+
+        if (player == 1) 
         { 
             spawnPoint = spawn1;
             playerPrefab = player1;
-            spawned1 = true;
         }
         else 
         { 
