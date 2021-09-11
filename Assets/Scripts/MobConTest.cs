@@ -5,11 +5,11 @@ using Photon.Pun;
 
 public class MobConTest : MonoBehaviour
 {
-    private CarController m_Car; 
     public VariableJoystick variableJoystick;
     public GameObject theCar;
+    public PhotonView view;
 
-    PhotonView view;
+    private CarController m_Car;
 
     private void Awake()
     {
@@ -19,15 +19,15 @@ public class MobConTest : MonoBehaviour
 
     private void Start()
     {
-        //if (m_Car == null) { m_Car = GetComponent<CarController>(); }
+        if (m_Car == null) { Debug.Log("Missing car controller !"); }
         //Debug.Log(GameObject.FindGameObjectsWithTag("GameController").ToString());
 
+        // joystick component
         if (variableJoystick == null) { variableJoystick = GameObject.FindGameObjectsWithTag("GameController")[0].GetComponent<VariableJoystick>(); }
 
         // photon component
-        view = GetComponent<PhotonView>();
+        if (view == null) { view = GetComponent<PhotonView>(); }
     }
-
 
     //private void FixedUpdate()
     private void Update()
